@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('heketi-ui-material App', () => {
+describe('heketi-ui App', () => {
   let page: AppPage;
 
   beforeEach(() => {
