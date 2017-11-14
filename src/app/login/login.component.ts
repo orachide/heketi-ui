@@ -10,7 +10,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-  infra: Infra = new Infra('','','');
+  infra: Infra = new Infra('','');
 
   constructor(private authService: AuthService) { }
 

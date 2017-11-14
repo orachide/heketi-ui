@@ -18,8 +18,9 @@ export class AuthService {
 
   login(infra: Infra){
     localStorage.setItem(HEKETI_UI_INFRA, JSON.stringify(infra));
-    this.http.get<Array<Cluster>>(`${infra.serverUrl}/clusters`).subscribe(response=>{
+    this.http.post<Array<Cluster>>('/auth/login',{'user':infra.user,'secret':infra.secret}).subscribe(response=>{
       this.clusterService.clusters = response;
+      console.log(response);
     },error=>{
       localStorage.removeItem(HEKETI_UI_INFRA);
       console.log(error);

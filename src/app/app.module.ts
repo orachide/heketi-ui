@@ -18,7 +18,6 @@ import { ClusterService } from './heketi/cluster.service';
 import { NodeService } from './heketi/node.service';
 import { VolumeService } from './heketi/volume.service';
 import { DeviceService } from './heketi/device.service';
-import { JwtTokenInterceptorService } from './auth/jwt-token-interceptor.service';
 
 
 @NgModule({
@@ -38,12 +37,8 @@ import { JwtTokenInterceptorService } from './auth/jwt-token-interceptor.service
     HttpClientModule
   ],
   providers: [AuthGuard,
-     AuthService, ClusterService, NodeService, VolumeService, DeviceService, JwtTokenInterceptorService,
-     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtTokenInterceptorService,
-      multi: true
-    }],
+     AuthService, ClusterService, NodeService, VolumeService, DeviceService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
