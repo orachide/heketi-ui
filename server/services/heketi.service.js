@@ -6,7 +6,9 @@ moment = require('moment');
 
 _this = this
 
-const heketiUrl = 'http://heketi-storage-glusterfs.apps.osocloud.chidix.fr';
+const heketiUrl = process.env.HEKETI_SERVER_URL;
+const heketiUser = process.env.HEKETI_SERVER_USER;
+const heketiSecret = process.env.HEKETI_SERVER_SECRET;
 
 var heketiServer = axios.create({
     baseURL: heketiUrl
@@ -25,8 +27,8 @@ heketiServer.interceptors.request.use(function (config) {
   });
 
 var generateJwtToken = function(httpConfig){
-    var user = httpConfig.params.user;
-    var secret = httpConfig.params.secret;
+    var user = heketiUser;
+    var secret = heketiSecret;
     var hash = sha256.create();
     hash.update(httpConfig.method.toUpperCase()+'&'+httpConfig.url);
     var now = moment();
@@ -38,11 +40,12 @@ var generateJwtToken = function(httpConfig){
         exp: now.add(7, 'days').format(),
         qsh: qsh
       }
-    return jwtSimple.encode(payload, secret);
+    var token = jwtSimple.encode(payload, secret);
+    return token;
 }
 
-exports.getAllCluster = async function(req){
-    return heketiServer.get('/clusters',{params:{user:req.session.username,secret:req.session.secret }})
+exports.getAllCluster = async function(){
+    return heketiServer.get('/clusters')
         .then(function(response) {
             console.log(response.data.clusters);
             return response.data.clusters;
@@ -50,5 +53,35 @@ exports.getAllCluster = async function(req){
             return Promise.reject(error);
           })
     
+}
+
+exports.getCluster = async function(clusterId){
+    return heketiServer.get('/clusters/'+clusterId)
+        .then(function(response) {
+            console.log(response.data);
+            return response.data;
+        }).catch(function (error) {
+            return Promise.reject(error);
+          })
+}
+
+exports.getNode = async function(nodeId){
+    return heketiServer.get('/nodes/'+nodeId)
+        .then(function(response) {
+            console.log(response.data);
+            return response.data;
+        }).catch(function (error) {
+            return Promise.reject(error);
+          })
+}
+
+exports.getVolume = async function(volumeId){
+    return heketiServer.get('/volumes/'+volumeId)
+        .then(function(response) {
+            console.log(response.data);
+            return response.data;
+        }).catch(function (error) {
+            return Promise.reject(error);
+          })
 }
 

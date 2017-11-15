@@ -20,6 +20,9 @@ import { NodeService } from './heketi/node.service';
 import { VolumeService } from './heketi/volume.service';
 import { DeviceService } from './heketi/device.service';
 import { EventManagerService } from './shared/event-manager.service';
+import { ClusterComponent } from './cluster/cluster.component';
+import { VolumeComponent } from './volume/volume.component';
+import { NodeComponent } from './node/node.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { EventManagerService } from './shared/event-manager.service';
     AppComponent,
     AboutComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ClusterComponent,
+    VolumeComponent,
+    NodeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs/Rx';
 import { EventManagerService } from './../shared/event-manager.service';
-import { JhiEventManager } from 'ng-jhipster';
 import { HttpClient } from '@angular/common/http';
 import { Cluster } from './../model/cluster';
 import { Injectable } from '@angular/core';
@@ -18,5 +17,9 @@ export class ClusterService {
       console.log(error);
     });
     return response;
+  }
+
+  get(clusterId: string){
+    return this.http.get<Cluster>(`/api/clusters/${clusterId}`,{})
   }
 }

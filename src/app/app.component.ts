@@ -13,23 +13,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   
   clusters = [];
-  clusterss: any = [
-    {
-      "name": "Douglas  Pace"
-    },
-    {
-      "name": "Mcleod  Mueller"
-    },
-    {
-      "name": "Day  Meyers"
-    },
-    {
-      "name": "Aguirre  Ellis"
-    },
-    {
-      "name": "Cook  Tyson"
-    }
-  ];;
 
   constructor(private eventManagerService: EventManagerService,private clusterService: ClusterService){}
 
