@@ -10,10 +10,11 @@ var api = require('./server/routes/api.route')
 var auth = require('./server/routes/auth.route')
 
 app.use(session({
+  name: 'heketi_ui_sid',
   secret: 'secretyouwillneverknow',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: false , httpOnly: false}
 }))
 
 app.use(logger('dev'));

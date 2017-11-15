@@ -1,3 +1,6 @@
+import { HttpClient } from '@angular/common/http';
+import { Cluster } from './../model/cluster';
+import { ClusterService } from './../heketi/cluster.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -8,9 +11,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clusterService: ClusterService,private http: HttpClient) { }
 
   ngOnInit() {
+    
   }
 
 }

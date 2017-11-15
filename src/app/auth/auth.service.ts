@@ -1,3 +1,4 @@
+import { EventManagerService } from './../shared/event-manager.service';
 import { Cluster } from './../model/cluster';
 import { Router } from '@angular/router';
 import { ClusterService } from './../heketi/cluster.service';
@@ -8,27 +9,26 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
+import { CookieService } from 'ngx-cookie-service';
 
-export const HEKETI_UI_INFRA: string = 'heketi_ui_infra';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private clusterService: ClusterService,private http: HttpClient, private router: Router) { }
+  constructor(private clusterService: ClusterService,
+    private http: HttpClient, private router: Router, private cookieService: CookieService) { }
 
   login(infra: Infra){
-    localStorage.setItem(HEKETI_UI_INFRA, JSON.stringify(infra));
     this.http.post<Array<Cluster>>('/auth/login',{'user':infra.user,'secret':infra.secret}).subscribe(response=>{
-      this.clusterService.clusters = response;
-      console.log(response);
+      this.clusterService.getAllClusters();
+      this.router.navigateByUrl('home');
     },error=>{
-      localStorage.removeItem(HEKETI_UI_INFRA);
       console.log(error);
     });
 
   }
 
   isLoggedIn(): boolean{
-    return false;
+    return this.cookieService.check('heketi_ui_sid');
   }
 }

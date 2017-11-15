@@ -7,6 +7,7 @@ import { MaterialModule } from './material.module';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -18,6 +19,7 @@ import { ClusterService } from './heketi/cluster.service';
 import { NodeService } from './heketi/node.service';
 import { VolumeService } from './heketi/volume.service';
 import { DeviceService } from './heketi/device.service';
+import { EventManagerService } from './shared/event-manager.service';
 
 
 @NgModule({
@@ -37,7 +39,7 @@ import { DeviceService } from './heketi/device.service';
     HttpClientModule
   ],
   providers: [AuthGuard,
-     AuthService, ClusterService, NodeService, VolumeService, DeviceService
+     AuthService, ClusterService, NodeService, VolumeService, DeviceService, CookieService, EventManagerService
     ],
   bootstrap: [AppComponent]
 })

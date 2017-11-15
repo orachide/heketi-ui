@@ -44,7 +44,8 @@ var generateJwtToken = function(httpConfig){
 exports.getAllCluster = async function(req){
     return heketiServer.get('/clusters',{params:{user:req.session.username,secret:req.session.secret }})
         .then(function(response) {
-            return response.data;
+            console.log(response.data.clusters);
+            return response.data.clusters;
         }).catch(function (error) {
             return Promise.reject(error);
           })

@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <a mat-button routerLink=""><span class="brand">Heketi-UI</span></a>
+    <button  *ngFor="let cluster of clusters" mat-button routerLink="about">{{cluster}}</button>
 
     <span class="example-spacer"></span>
     

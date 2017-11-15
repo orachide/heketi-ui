@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     {
-      path: '',
+      path: 'home',
       component: HomeComponent,
       canActivate: [AuthGuard]
     },
@@ -18,7 +18,8 @@ const routes: Routes = [
     {
       path: 'about',
       component: AboutComponent
-    }
+    },
+    { path: '',   redirectTo: '/home', pathMatch: 'full' }
   ];
 
   @NgModule({
