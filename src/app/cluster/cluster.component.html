@@ -4,7 +4,7 @@
       <mat-card-title><i class="fa fa-server fa-lg mr-3"></i>Nodes</mat-card-title>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let node of cluster?.nodes"> <button mat-button [routerLink]="['node',node]">{{node}}</button> </mat-list-item>
+          <mat-list-item *ngFor="let node of cluster?.nodes"> <button mat-button [routerLink]="['node',node.id]">{{node.hostnames.manage}} - {{node.hostnames.storage}}</button> </mat-list-item>
          </mat-list>
       </mat-card-content>
     </mat-card>
