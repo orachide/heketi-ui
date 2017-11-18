@@ -1,8 +1,50 @@
-<mat-card  class="">
-    <mat-card-title><i class="fa fa-database fa-lg mr-3"></i>{{volume?.name}}</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+<h3><i class="fa fa-database fa-lg mr-2"></i>{{volume?.name}}</h3>
+<hr/>
+<div class="row">
+  <div class="col-md-6">
+      <h4>Durability: {{volume?.durability?.type}}</h4>
+      <table class="table">
+        <tr>
+          <td><strong>Disperse</strong></td>
+          <td>{{volume?.durability?.disperse?.redundancy}}</td>
+        </tr>
+        <tr>
+            <td><strong>Replicate</strong></td>
+            <td>{{volume?.durability?.replicate?.replica}}</td>
+          </tr>
+      </table>
+  </div>
+  <div class="col-md-6">
+      <h4>Mount</h4>
+      <table class="table">
+        <tr>
+          <td>Glusterfs device</td>
+          <td>{{volume?.mount?.glusterfs?.device}}</td>
+        </tr>
+        <tr>
+            <td>Hosts</td>
+            <td>
+              <ul class="list-unstyled">
+                <li *ngFor="let host of volume?.mount?.glusterfs?.hosts">
+                  {{host}}
+                </li>
+              </ul>
+            </td>
+          </tr>
+      </table>
+  </div>
+</div>
+<hr/>
+<h4>Bricks</h4>
+<div class="row">
+  <div class="col-md-4 pb-3" *ngFor="let brick of volume?.bricks">
+      <div class="card">
+        <div class="card-header">
+            {{brick.path}}
+        </div>
+        <div class="card-block p-2">
+            <strong>{{brick.size | kbToGb}}</strong> 
+        </div>
+      </div>
+  </div>
+</div>

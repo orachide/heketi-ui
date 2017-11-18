@@ -1,14 +1,28 @@
-<mat-card  class="">
-  <mat-card-title><i class="fa fa-server fa-lg mr-3"></i> Node: {{node?.id}}, Zone: {{node?.zone}}</mat-card-title>
-  <mat-card-subtitle>
-    <ul class="list-unstyled">
-      <li>Manage: {{node?.hostnames.manage}}</li>
-      <li>Storage: {{node?.hostnames.storage}}</li>
-    </ul>
-  </mat-card-subtitle>
-  <mat-card-content>
-    <mat-list>
-      
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+  <h3><i class="fa fa-server fa-lg mr-2"></i>{{node?.hostnames?.manage}} <small class="pull-right">Zone: {{node?.zone}}</small></h3>
+  <p>{{node?.hostnames.storage}}</p>
+  <h5>Devices</h5>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let device of node?.devices">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{device.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+            {{device.storage.used | kbToGb}} / {{device.storage.total | kbToGb}} (<strong>{{device.storage.free | kbToGb}} free</strong>)
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-md-4 pb-3" *ngFor="let brick of device?.bricks">
+            <div class="card">
+              <div class="card-header">
+                  {{brick.path}}
+              </div>
+              <div class="card-block p-2">
+                  <strong>{{brick.size | kbToGb}}</strong> 
+                  <button class=" float-right" mat-button color="primary" [routerLink]="['../../volume',brick.volume]">Volume details</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion> 

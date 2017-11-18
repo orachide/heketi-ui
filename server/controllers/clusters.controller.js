@@ -11,8 +11,15 @@ var detailedCluster = async function(clusterId){
         var node = await HeketiService.getNode(currentCluster.nodes[nodeIndex]);
         nodes.push(node);
     }
-    return {id: clusterId,nodes:nodes};
+    var volumes = [];
+    for (let volumeIndex in currentCluster.volumes) {
+        console.log('Current volume id',currentCluster.volumes[volumeIndex]);
+        var volume = await HeketiService.getVolume(currentCluster.volumes[volumeIndex]);
+        volumes.push(volume);
+    }
+    return {id: clusterId,nodes:nodes,volumes:volumes};
 }
+
 
 exports.getAll = async function(req, res, next){
     try{

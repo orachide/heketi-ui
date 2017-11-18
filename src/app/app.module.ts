@@ -23,6 +23,7 @@ import { EventManagerService } from './shared/event-manager.service';
 import { ClusterComponent } from './cluster/cluster.component';
 import { VolumeComponent } from './volume/volume.component';
 import { NodeComponent } from './node/node.component';
+import { KbToGbPipe } from './shared/pipe/kb-to-gb.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { NodeComponent } from './node/node.component';
     LoginComponent,
     ClusterComponent,
     VolumeComponent,
-    NodeComponent
+    NodeComponent,
+    KbToGbPipe
   ],
   imports: [
     BrowserModule,

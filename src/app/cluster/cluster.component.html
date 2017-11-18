@@ -1,20 +1,28 @@
 <div class="row pt-3">
   <div class="col-md-6">
     <mat-card  class="">
-      <mat-card-title><i class="fa fa-server fa-lg mr-3"></i>Nodes</mat-card-title>
+      <mat-card-title>Nodes</mat-card-title>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let node of cluster?.nodes"> <button mat-button [routerLink]="['node',node.id]">{{node.hostnames.manage}} - {{node.hostnames.storage}}</button> </mat-list-item>
+          <mat-list-item *ngFor="let node of cluster?.nodes">
+            <mat-icon mat-list-icon>desktop_mac</mat-icon>
+            <h4 mat-line><a [routerLink]="['node',node.id]">{{node.hostnames.manage}}</a></h4>
+            <p mat-line> {{node.hostnames.storage}} - Zone {{node?.zone}}</p>
+          </mat-list-item>
          </mat-list>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="col-md-6">
     <mat-card  class="">
-      <mat-card-title><i class="fa fa-database fa-lg mr-3"></i>Volumes</mat-card-title>
+      <mat-card-title>Volumes</mat-card-title>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let volume of cluster?.volumes"> <button mat-button [routerLink]="['volume',volume]">{{volume}}</button> </mat-list-item>
+          <mat-list-item *ngFor="let volume of cluster?.volumes">
+            <mat-icon mat-list-icon>storage</mat-icon>
+            <h4 mat-line><a [routerLink]="['volume',volume.id]">{{volume.name}}</a></h4>
+            <p mat-line> {{volume.size}} GB - {{volume.bricks?.length}} Brick</p>
+          </mat-list-item>
          </mat-list>
       </mat-card-content>
     </mat-card>
