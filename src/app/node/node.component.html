@@ -1,6 +1,6 @@
-  <h3><i class="fa fa-server fa-lg mr-2"></i>{{node?.hostnames?.manage}} <small class="pull-right">Zone: {{node?.zone}}</small></h3>
+  <h3 class="text-secondary"><i class="fa fa-server fa-lg mr-2"></i>{{node?.hostnames?.manage}} <small class="pull-right">Zone: {{node?.zone}}</small></h3>
   <p>{{node?.hostnames.storage}}</p>
-  <h5>Devices</h5>
+  <h4 class="text-info">Devices</h4>
   <mat-accordion>
     <mat-expansion-panel *ngFor="let device of node?.devices">
       <mat-expansion-panel-header>

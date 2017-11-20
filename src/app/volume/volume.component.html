@@ -1,9 +1,9 @@
-<h3><i class="fa fa-database fa-lg mr-2"></i>{{volume?.name}}</h3>
+<h3 class="text-secondary"><i class="fa fa-database fa-lg mr-2"></i>{{volume?.name}}</h3>
 <hr/>
 <div class="row">
   <div class="col-md-6">
-      <h4>Durability: {{volume?.durability?.type}}</h4>
-      <table class="table">
+      <h4 class="text-info">Durability: {{volume?.durability?.type}}</h4>
+      <table class="table table-hover">
         <tr>
           <td><strong>Disperse</strong></td>
           <td>{{volume?.durability?.disperse?.redundancy}}</td>
@@ -15,14 +15,14 @@
       </table>
   </div>
   <div class="col-md-6">
-      <h4>Mount</h4>
-      <table class="table">
+      <h4 class="text-info">Mount</h4>
+      <table class="table table-hover">
         <tr>
-          <td>Glusterfs device</td>
+          <td><strong>Glusterfs device</strong></td>
           <td>{{volume?.mount?.glusterfs?.device}}</td>
         </tr>
         <tr>
-            <td>Hosts</td>
+            <td><strong>Hosts</strong></td>
             <td>
               <ul class="list-unstyled">
                 <li *ngFor="let host of volume?.mount?.glusterfs?.hosts">
@@ -35,7 +35,7 @@
   </div>
 </div>
 <hr/>
-<h4>Bricks</h4>
+<h4 class="text-info">Bricks</h4>
 <div class="row">
   <div class="col-md-4 pb-3" *ngFor="let brick of volume?.bricks">
       <div class="card">
