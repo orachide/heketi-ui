@@ -9,3 +9,9 @@
   mat-toolbar .brand{
     font-size: 150%;
 }
+
+button.fab-add {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+}
