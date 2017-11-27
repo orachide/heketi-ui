@@ -8,6 +8,10 @@ This project is still in dev phase and is not ready for use
 
 ## Run with docker
 
+```bash
+docker run -e HEKETI_SERVER_URL="" -e HEKETI_SERVER_USER="admin" -e HEKETI_SERVER_SECRET="" -p 3000:3000 orachide/heketi-ui
+```
+
 ## Development
 
 ### Development server
