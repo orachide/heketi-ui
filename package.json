@@ -38,6 +38,7 @@
     "jwt-simple": "^0.5.1",
     "moment": "^2.19.2",
     "morgan": "^1.9.0",
+    "ngc-float-button": "^1.1.4",
     "ngx-cookie-service": "^1.0.9",
     "rxjs": "^5.5.2",
     "serve-favicon": "^2.4.5",

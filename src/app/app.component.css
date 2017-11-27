@@ -10,8 +10,23 @@
     font-size: 150%;
 }
 
-button.fab-add {
+.fab-add {
     position: fixed;
     bottom: 30px;
     right: 20px;
+}
+
+.fab-toggle{
+    background: #ff4081;
+    color: #fff;
+}
+
+button.fab-add2 {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+}
+
+mat-toolbar-row.clusters-row{
+    height: 35px;
 }

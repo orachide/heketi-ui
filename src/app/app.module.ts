@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
+import {NgcFloatButtonModule} from 'ngc-float-button';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -44,7 +45,8 @@ import { KbToGbPipe } from './shared/pipe/kb-to-gb.pipe';
     FormsModule,
     AppRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NgcFloatButtonModule
   ],
   providers: [AuthGuard,
      AuthService, ClusterService, NodeService, VolumeService, DeviceService, CookieService, EventManagerService

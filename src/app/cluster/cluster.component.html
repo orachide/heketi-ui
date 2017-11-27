@@ -3,13 +3,21 @@
     <mat-card  class="">
       <mat-card-title class="text-info">Nodes</mat-card-title>
       <mat-card-content>
-        <mat-list>
-          <mat-list-item *ngFor="let node of cluster?.nodes">
-            <mat-icon mat-list-icon>desktop_mac</mat-icon>
-            <h4 mat-line><a [routerLink]="['node',node.id]">{{node.hostnames.manage}}</a></h4>
-            <p mat-line> {{node.hostnames.storage}} - Zone {{node?.zone}}</p>
-          </mat-list-item>
-         </mat-list>
+        <div class="row">
+          <div class="col-md-6 pb-3" *ngFor="let node of cluster?.nodes">
+              <div class="card">
+                <div class="card-header">
+                    <a [routerLink]="['node',node.id]">{{node.hostnames.manage}}</a>
+                    <span class="float-right badge" [ngClass]="{'badge-success': node.state == 'online', 'badge-danger': node.state != 'online'}">
+                      {{node.state}}
+                    </span>
+                </div>
+                <div class="card-block p-2">
+                    <span>{{node.hostnames.storage}} </span> <span class="float-right text-muted">Zone {{node?.zone}}</span> 
+                </div>
+              </div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
@@ -17,13 +25,18 @@
     <mat-card  class="">
       <mat-card-title class="text-info">Volumes</mat-card-title>
       <mat-card-content>
-        <mat-list>
-          <mat-list-item *ngFor="let volume of cluster?.volumes">
-            <mat-icon mat-list-icon>storage</mat-icon>
-            <h4 mat-line><a [routerLink]="['volume',volume.id]">{{volume.name}}</a></h4>
-            <p mat-line> {{volume.size}} GB - {{volume.bricks?.length}} Brick</p>
-          </mat-list-item>
-         </mat-list>
+        <div class="row">
+          <div class="col-md-4 pb-3" *ngFor="let volume of cluster?.volumes">
+              <div class="card">
+                <div class="card-header">
+                    <a [routerLink]="['volume',volume.id]">{{volume.name}}</a>
+                </div>
+                <div class="card-block p-2">
+                    <span>{{volume.size}} GB</span> <span class="float-right text-muted">{{volume.bricks?.length}} Brick</span> 
+                </div>
+              </div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
