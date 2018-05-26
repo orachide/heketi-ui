@@ -1,5 +1,7 @@
 # Heketi-Ui
 
+[![Build Status](https://travis-ci.org/orachide/heketi-ui.svg?branch=master)](https://travis-ci.org/orachide/heketi-ui)
+
 ## Overview
 Heketi UI is a web UI to manage [heketi](https://github.com/heketi/heketi) server. This should allow to have an overview of your [**glusterfs**](https://www.gluster.org/) cluster.
 
