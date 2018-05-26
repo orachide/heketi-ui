@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Add volume</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <mat-form-field class="col-md-12">
+        <mat-label>Volume name</mat-label>
+        <input matInput [(ngModel)]="volumeName">
+      </mat-form-field>
+      <mat-form-field class="col-md-12">
+        <mat-label>Volume size</mat-label>
+        <input type="number" matInput placeholder="Enter volume size" [(ngModel)]="volumeSize">
+      </mat-form-field>
+      <mat-form-field class="col-md-12">
+        <mat-label>Volume durability</mat-label>
+        <mat-select  [(ngModel)]="volumeDurability">
+          <mat-option value="none">Nome</mat-option>
+          <mat-option value="replicate">Replicate</mat-option>
+          <mat-option value="dispersed">Dispersed</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-md-12" *ngIf="volumeDurability=='replicate'">
+        <mat-label>Number of replica</mat-label>
+        <input type="number" matInput [(ngModel)]="volumeReplicaNumber">
+      </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="float-right">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button color="primary" (click)="createVolume()" cdkFocusInitial>Create</button>
+</div>
+

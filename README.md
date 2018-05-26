@@ -3,7 +3,7 @@
 ## Overview
 Heketi UI is a web UI to manage [heketi](https://github.com/heketi/heketi) server. This should allow to have an overview of your [**glusterfs**](https://www.gluster.org/) cluster.
 
-This project is still in dev phase and is not ready for use
+This project is still in dev phase and is not ready for use in production
 
 
 ## Run with docker

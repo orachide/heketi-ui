@@ -1,10 +1,13 @@
 <div class="row pt-3">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <mat-card  class="">
       <mat-card-title class="text-info">Nodes</mat-card-title>
       <mat-card-content>
         <div class="row">
-          <div class="col-md-6 pb-3" *ngFor="let node of cluster?.nodes">
+            <div class="spinner-container" *ngIf="!cluster?.nodes" style="margin: auto;">
+              <mat-spinner color="accent"></mat-spinner>  
+            </div>
+          <div class="col-md-4 pb-3" *ngFor="let node of cluster?.nodes">
               <div class="card">
                 <div class="card-header">
                     <a [routerLink]="['node',node.id]">{{node.hostnames.manage}}</a>
@@ -21,18 +24,21 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <mat-card  class="">
       <mat-card-title class="text-info">Volumes</mat-card-title>
       <mat-card-content>
         <div class="row">
+          <div class="spinner-container" *ngIf="!cluster?.volumes" style="margin: auto;">
+            <mat-spinner color="accent"></mat-spinner>  
+          </div>
           <div class="col-md-4 pb-3" *ngFor="let volume of cluster?.volumes">
               <div class="card">
                 <div class="card-header">
                     <a [routerLink]="['volume',volume.id]">{{volume.name}}</a>
                 </div>
                 <div class="card-block p-2">
-                    <span>{{volume.size}} GB</span> <span class="float-right text-muted">{{volume.bricks?.length}} Brick</span> 
+                    <span>{{volume.size}} GB</span> <span class="float-right text-muted">{{volume.bricks?.length}} Brick(s)</span> 
                 </div>
               </div>
           </div>

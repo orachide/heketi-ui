@@ -5,10 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { HttpModule } from '@angular/http';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
-import {NgcFloatButtonModule} from 'ngc-float-button';
+import { NgcFloatButtonModule } from 'ngc-float-button';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -25,6 +25,7 @@ import { ClusterComponent } from './cluster/cluster.component';
 import { VolumeComponent } from './volume/volume.component';
 import { NodeComponent } from './node/node.component';
 import { KbToGbPipe } from './shared/pipe/kb-to-gb.pipe';
+import { AddVolumeDialogComponent } from './volume/add-volume-dialog.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { KbToGbPipe } from './shared/pipe/kb-to-gb.pipe';
     ClusterComponent,
     VolumeComponent,
     NodeComponent,
-    KbToGbPipe
+    KbToGbPipe,
+    AddVolumeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +51,9 @@ import { KbToGbPipe } from './shared/pipe/kb-to-gb.pipe';
     NgcFloatButtonModule
   ],
   providers: [AuthGuard,
-     AuthService, ClusterService, NodeService, VolumeService, DeviceService, CookieService, EventManagerService
-    ],
+    AuthService, ClusterService, NodeService, VolumeService, DeviceService, CookieService, EventManagerService
+  ],
+  entryComponents: [AddVolumeDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

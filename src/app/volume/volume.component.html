@@ -40,7 +40,7 @@
   <div class="col-md-4 pb-3" *ngFor="let brick of volume?.bricks">
       <div class="card">
         <div class="card-header">
-            {{brick.path}}
+          <small>{{brick.path}}</small>
         </div>
         <div class="card-block p-2">
             <strong>{{brick.size | kbToGb}}</strong> 

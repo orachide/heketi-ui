@@ -7,16 +7,15 @@
       Github
     </a>
   </mat-toolbar-row>
-  <mat-toolbar-row *ngIf="clusters.length > 0" color="accent" class="clusters-row">
+  <mat-toolbar-row color="accent" class="clusters-row">
     <span class="text-muted">Clusters:</span>  
     <button class="ml-4" *ngFor="let cluster of clusters" mat-button [routerLink]="['cluster',cluster.id]">{{cluster.id}} ({{cluster.nodes.length}} nodes)</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container-fluid p-3">
   <router-outlet></router-outlet>
-  <button class="fab-add2" mat-fab color="accent"><mat-icon>add</mat-icon></button>
+  <!-- <button class="fab-add2" mat-fab color="accent"><mat-icon>add</mat-icon></button> -->
   <ngc-float-button class="fab-add" icon="add">
-      <ngc-float-item-button icon="desktop_mac" content="Add node"></ngc-float-item-button>
-      <ngc-float-item-button icon="storage" content="Add volume"></ngc-float-item-button>
+      <ngc-float-item-button icon="storage" content="Add volume" (click)="openVolumeDialog()"></ngc-float-item-button>
   </ngc-float-button>
 </div>
