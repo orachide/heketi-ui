@@ -10,6 +10,8 @@ This project is still in dev phase and is not ready for use in production
 
 ## Run with docker
 
+You can find the docker images here [orachide/heketi-ui](https://hub.docker.com/r/orachide/heketi-ui/)
+
 ```bash
 docker run -e HEKETI_SERVER_URL="" -e HEKETI_SERVER_USER="admin" -e HEKETI_SERVER_SECRET="" -p 3000:3000 orachide/heketi-ui
 ```
