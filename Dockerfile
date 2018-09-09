@@ -5,15 +5,11 @@ ENV HEKETI_SERVER_URL=""  HEKETI_SERVER_USER="admin" HEKETI_SERVER_SECRET=""
 # Create app directory
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
-RUN npm run build
-
-
-# Bundle app source
-COPY . .
+RUN npm run-script build
 
 EXPOSE 3000
 
