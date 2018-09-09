@@ -4,6 +4,6 @@ services:
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 script:
-  - docker build -t orachide/heketi-ui:latest -t orachide/heketi-ui:1.0.0 .
+  - docker build -t orachide/heketi-ui:latest -t orachide/heketi-ui:1.0.1 .
   - docker push orachide/heketi-ui:latest
-  - docker push orachide/heketi-ui:1.0.0
+  - docker push orachide/heketi-ui:1.0.1

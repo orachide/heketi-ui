@@ -1,6 +1,6 @@
 {
   "name": "heketi-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Heketi Web interface",
   "author": "Rachide Ouattara <ouattchidi@gmail.com>",
   "license": "MIT",

@@ -4,7 +4,6 @@ _this = this
 
 exports.login = async function(req, res, next){
     try{
-        console.log('User: '+req.body.user + '& Secret: '+req.body.secret);
         req.session.username = req.body.user;
         req.session.secret = req.body.secret;
         var clusters = await HeketiService.getAllCluster(req);

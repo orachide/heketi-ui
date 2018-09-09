@@ -4,16 +4,13 @@ _this = this
 
 var detailedCluster = async function(clusterId){
     var currentCluster = await HeketiService.getCluster(clusterId);
-    console.log('Current cluster',currentCluster);
     var nodes = [];
     for (let nodeIndex in currentCluster.nodes) {
-        console.log('Current node id',currentCluster.nodes[nodeIndex]);
         var node = await HeketiService.getNode(currentCluster.nodes[nodeIndex]);
         nodes.push(node);
     }
     var volumes = [];
     for (let volumeIndex in currentCluster.volumes) {
-        console.log('Current volume id',currentCluster.volumes[volumeIndex]);
         var volume = await HeketiService.getVolume(currentCluster.volumes[volumeIndex]);
         volumes.push(volume);
     }

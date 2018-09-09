@@ -47,7 +47,6 @@ var generateJwtToken = function(httpConfig){
 exports.getAllCluster = async function(){
     return heketiServer.get('/clusters')
         .then(function(response) {
-            console.log(response.data.clusters);
             return response.data.clusters;
         }).catch(function (error) {
             return Promise.reject(error);
@@ -58,7 +57,6 @@ exports.getAllCluster = async function(){
 exports.getCluster = async function(clusterId){
     return heketiServer.get('/clusters/'+clusterId)
         .then(function(response) {
-            console.log(response.data);
             return response.data;
         }).catch(function (error) {
             return Promise.reject(error);
@@ -68,7 +66,6 @@ exports.getCluster = async function(clusterId){
 exports.getNode = async function(nodeId){
     return heketiServer.get('/nodes/'+nodeId)
         .then(function(response) {
-            console.log(response.data);
             return response.data;
         }).catch(function (error) {
             return Promise.reject(error);
@@ -78,7 +75,6 @@ exports.getNode = async function(nodeId){
 exports.getVolume = async function(volumeId){
     return heketiServer.get('/volumes/'+volumeId)
         .then(function(response) {
-            console.log(response.data);
             return response.data;
         }).catch(function (error) {
             return Promise.reject(error);
