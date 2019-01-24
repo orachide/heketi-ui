@@ -5,7 +5,7 @@
 ## Overview
 Heketi UI is a web UI to manage [heketi](https://github.com/heketi/heketi) server. This should allow to have an overview of your [**glusterfs**](https://www.gluster.org/) cluster.
 
-This project is still in dev phase and is not ready for use in production
+**This project is still in dev phase and is not ready for use in production**
 
 
 ## Run with docker
@@ -15,6 +15,7 @@ You can find the docker images here [orachide/heketi-ui](https://hub.docker.com/
 ```bash
 docker run -e HEKETI_SERVER_URL="" -e HEKETI_SERVER_USER="admin" -e HEKETI_SERVER_SECRET="" -p 3000:3000 orachide/heketi-ui
 ```
+After the container is running, you can browse to `http://localhost:3000/`
 
 ## Development
 
