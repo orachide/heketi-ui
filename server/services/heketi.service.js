@@ -36,8 +36,8 @@ var generateJwtToken = function(httpConfig){
     var qsh = hash.hex();
     var payload = {
         iss: user,
-        iat: now.format(),
-        exp: now.add(7, 'days').format(),
+        iat: now.unix(),
+        exp: now.add(7, 'days').unix(),
         qsh: qsh
       }
     var token = jwtSimple.encode(payload, secret);
