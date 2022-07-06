@@ -38,7 +38,7 @@
     "hammerjs": "^2.0.8",
     "js-sha256": "^0.7.1",
     "jwt-simple": "^0.5.3",
-    "moment": "^2.22.1",
+    "moment": "^2.29.4",
     "morgan": "^1.9.1",
     "ngc-float-button": "^1.1.4",
     "ngx-cookie-service": "^1.0.9",
